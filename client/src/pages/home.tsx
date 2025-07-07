@@ -26,7 +26,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between text-center md:text-left">
             <div className="text-gray-400 mb-4 md:mb-0">
-              © 2025 Prashant Verma. All rights reserved.
+              © 2025 Praashant Verma. All rights reserved.
             </div>
             <div className="flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0 text-sm text-gray-400">
               <div>Technical Blogger • 15K+ followers</div>

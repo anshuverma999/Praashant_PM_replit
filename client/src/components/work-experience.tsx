@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export default function WorkExperience() {
   const experiences = [
@@ -70,16 +71,28 @@ export default function WorkExperience() {
     }
   ];
 
+  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <section id="experience" className="py-20 bg-secondary-dark/30">
+    <section ref={elementRef} id="experience" className="py-20 bg-secondary-dark/30">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-16 gradient-text">
+        <h2 className={`text-4xl font-bold text-center mb-16 gradient-text transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
           Work Experience
         </h2>
         
         <div className="space-y-12">
           {experiences.map((exp, index) => (
-            <Card key={index} className="bg-secondary-dark border-gray-800 card-hover">
+            <Card 
+              key={index} 
+              className={`bg-secondary-dark border-gray-800 card-hover transition-all duration-800 ${
+                isVisible 
+                  ? 'opacity-100 translate-x-0 scale-100' 
+                  : `opacity-0 ${index % 2 === 0 ? 'translate-x-[-50px]' : 'translate-x-[50px]'} scale-95`
+              }`}
+              style={{ transitionDelay: `${index * 200}ms` }}
+            >
               <CardContent className="p-8">
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
                   <div>

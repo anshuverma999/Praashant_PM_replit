@@ -56,16 +56,16 @@ export default function AnimatedBackground() {
   useEffect(() => {
     // Initialize floating icons
     const initialIcons: FloatingIcon[] = [];
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 30; i++) {
       const iconData = iconList[Math.floor(Math.random() * iconList.length)];
       initialIcons.push({
         id: i,
         Icon: iconData.Icon,
-        x: Math.random() * (window.innerWidth + 200) - 100,
-        y: Math.random() * (window.innerHeight + 200) - 100,
+        x: Math.random() * (window.innerWidth + 300) - 150,
+        y: Math.random() * (window.innerHeight + 300) - 150,
         rotation: Math.random() * 360,
-        scale: 0.4 + Math.random() * 0.6,
-        speed: 0.1 + Math.random() * 0.4,
+        scale: 1.2 + Math.random() * 1.8, // 4x bigger scale range
+        speed: 0.05 + Math.random() * 0.2,
         color: iconData.color
       });
     }
@@ -94,12 +94,12 @@ export default function AnimatedBackground() {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden opacity-30">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden opacity-50">
       {icons.map(icon => {
         const { Icon } = icon;
         const parallaxY = scrollY * 0.15 * (icon.id % 4 + 1);
         const parallaxX = scrollY * 0.05 * (icon.id % 2 === 0 ? 1 : -1);
-        const depthScale = 0.8 + (icon.id % 3) * 0.1;
+        const depthScale = 0.9 + (icon.id % 3) * 0.15;
         
         return (
           <div
@@ -111,16 +111,17 @@ export default function AnimatedBackground() {
               transform: `
                 rotate(${icon.rotation}deg) 
                 scale(${icon.scale * depthScale}) 
-                perspective(1000px) 
-                rotateX(${Math.sin(Date.now() * 0.001 + icon.id) * 15}deg) 
-                rotateY(${Math.cos(Date.now() * 0.001 + icon.id) * 10}deg)
+                perspective(1200px) 
+                rotateX(${Math.sin(Date.now() * 0.001 + icon.id) * 12}deg) 
+                rotateY(${Math.cos(Date.now() * 0.001 + icon.id) * 8}deg)
               `,
-              opacity: 0.4 + Math.sin(Date.now() * 0.003 + icon.id) * 0.3,
-              filter: `blur(${Math.abs(Math.sin(Date.now() * 0.002 + icon.id)) * 0.8}px)`
+              opacity: 0.6 + Math.sin(Date.now() * 0.003 + icon.id) * 0.4,
+              filter: `blur(${Math.abs(Math.sin(Date.now() * 0.002 + icon.id)) * 0.5}px) drop-shadow(0 0 10px currentColor)`,
+              textShadow: `0 0 20px currentColor`
             }}
           >
             <Icon 
-              size={20 + (icon.id % 4) * 6} 
+              size={48 + (icon.id % 5) * 16} // 4x bigger base size
               className="drop-shadow-2xl"
             />
           </div>
@@ -128,8 +129,8 @@ export default function AnimatedBackground() {
       })}
       
       {/* Multi-layered gradient overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary-dark/20 to-primary-dark/40 pointer-events-none"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/10 via-transparent to-primary-dark/10 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary-dark/15 to-primary-dark/30 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/5 via-transparent to-primary-dark/5 pointer-events-none"></div>
     </div>
   );
 }

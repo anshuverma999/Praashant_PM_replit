@@ -10,6 +10,7 @@ import {
   Activity, 
   BarChart3 
 } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export default function SkillsTools() {
   const skillCategories = [
@@ -56,28 +57,48 @@ export default function SkillsTools() {
     { name: "Trello", icon: BarChart3, color: "text-purple-400" }
   ];
 
+  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <section id="skills" className="py-20 bg-secondary-dark/30">
+    <section ref={elementRef} id="skills" className="py-20 bg-secondary-dark/30">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-16 gradient-text">
+        <h2 className={`text-4xl font-bold text-center mb-16 gradient-text transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
           Skills & Tools
         </h2>
         
         {/* Skill Categories */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
           {skillCategories.map((category, index) => (
-            <div key={index}>
+            <div 
+              key={index}
+              className={`transition-all duration-800 ${
+                isVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: `${index * 200}ms` }}
+            >
               <h3 className={`text-2xl font-bold mb-6 ${category.color}`}>
                 {category.title}
               </h3>
               <div className="space-y-4">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
+                  <div 
+                    key={skillIndex}
+                    className={`transition-all duration-500 ${
+                      isVisible 
+                        ? 'opacity-100 translate-x-0' 
+                        : 'opacity-0 translate-x-[-20px]'
+                    }`}
+                    style={{ transitionDelay: `${(index * 200) + (skillIndex * 100)}ms` }}
+                  >
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-gray-300">{skill.name}</span>
                       <span className="text-sm text-gray-400">{skill.level}%</span>
                     </div>
-                    <Progress value={skill.level} className="h-2" />
+                    <Progress value={isVisible ? skill.level : 0} className="h-2" />
                   </div>
                 ))}
               </div>
@@ -90,7 +111,15 @@ export default function SkillsTools() {
           {tools.map((tool, index) => {
             const IconComponent = tool.icon;
             return (
-              <Card key={index} className="bg-secondary-dark border-gray-800 card-hover">
+              <Card 
+                key={index} 
+                className={`bg-secondary-dark border-gray-800 card-hover transition-all duration-600 ${
+                  isVisible 
+                    ? 'opacity-100 scale-100 rotate-0' 
+                    : 'opacity-0 scale-75 rotate-12'
+                }`}
+                style={{ transitionDelay: `${index * 50}ms` }}
+              >
                 <CardContent className="p-6 text-center">
                   <IconComponent size={32} className={`${tool.color} mb-3 mx-auto`} />
                   <div className="text-sm text-gray-300">{tool.name}</div>

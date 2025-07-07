@@ -17,7 +17,7 @@ export default function HeroSection() {
             <div className="relative">
               <img 
                 src={profileImage} 
-                alt="Prashant Verma"
+                alt="Praashant Verma"
                 className="w-48 h-48 rounded-full object-cover border-4 border-accent-blue/30 shadow-2xl"
               />
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent-blue/20 to-accent-purple/20"></div>
@@ -27,7 +27,7 @@ export default function HeroSection() {
           <h2 className="text-gray-400 text-xl mb-4">Senior Product & Project Management Specialist</h2>
           
           <h1 className="text-6xl md:text-8xl font-bold mb-6 gradient-text">
-            Prashant Verma
+            Praashant Verma
           </h1>
           
           <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-8 text-gray-300 mb-8">

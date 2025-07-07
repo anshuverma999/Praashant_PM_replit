@@ -1,27 +1,35 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { CheckCircle } from "lucide-react";
+
 export default function WorkExperience() {
   const experiences = [
     {
       title: "Sr. Technical Project Manager",
-      company: "Mercans, Estonia",
-      period: "2024 - Present",
-      location: "Remote",
+      company: "Mercans, Estonia (Remote)",
+      period: "Jun 2024 – Present",
       current: true,
-      description: "At Mercans, I spearhead product launches and analytics frameworks across multiple business lines, focusing on enhancing market penetration and driving revenue growth for enterprise clients including Fortune 500 companies.",
+      metrics: [
+        { label: "YoY Revenue Growth", value: "18%" },
+        { label: "New Revenue Streams", value: "$5M" }
+      ],
       achievements: [
         "Spearheaded 7 product launches, resulting in 18% YoY revenue growth and enhanced market penetration",
-        "Rolled out analytics frameworks across 5 business lines, driving $2.3M in upsell opportunities", 
+        "Rolled out analytics frameworks across 5 business lines, driving $2.3M in upsell opportunities",
         "Migrated global teams to ClickUp, improving cross-team collaboration by 42%",
-        "Oversaw enterprise accounts (Audi, Uber, Ford, Mastercard), boosting satisfaction scores through tailored delivery",
+        "Oversaw enterprise accounts (Audi, Uber, Ford, Mastercard), boosting satisfaction through tailored delivery",
         "Led HRBlizz payroll system development, generating $5M in new revenue streams"
       ]
     },
     {
-      title: "Sr. Project Manager", 
-      company: "MyGold Pvt. Ltd",
-      period: "2022 - 2024",
-      location: "India",
+      title: "Sr. Project Manager",
+      company: "MyGold Pvt. Ltd, India",
+      period: "Apr 2022 - Jun 2024",
       current: false,
-      description: "As Senior Project Manager at MyGold, I delivered SaaS projects with Agile teams while managing PMO operations across multiple parallel initiatives, focusing on payment automation and risk management frameworks.",
+      metrics: [
+        { label: "On-time Delivery", value: "100%" },
+        { label: "Failure Reduction", value: "65%" }
+      ],
       achievements: [
         "Delivered 18 SaaS projects with Agile teams, achieving 100% on-time delivery and full client acceptance",
         "Oversaw $15M+ in annual payment volume; implemented automation reducing transaction failures by 65%",
@@ -31,11 +39,13 @@ export default function WorkExperience() {
     },
     {
       title: "Sr. Project Manager",
-      company: "Nexa Digital & Marketing",
-      period: "2017 - 2022", 
-      location: "UAE",
+      company: "Nexa Digital & Marketing, UAE",
+      period: "Jul 2017 - Mar 2022",
       current: false,
-      description: "At Nexa Digital & Marketing, I championed ERP implementations across multiple countries while serving as ScrumMaster to accelerate delivery consistency and uncover significant business opportunities.",
+      metrics: [
+        { label: "Cost Savings", value: "$1.2M" },
+        { label: "Sprint Velocity Boost", value: "30%" }
+      ],
       achievements: [
         "Championed ERP rollout across 3 countries, saving $1.2M in operational costs",
         "Introduced change management processes, achieving 95% adoption within 3 months",
@@ -45,11 +55,13 @@ export default function WorkExperience() {
     },
     {
       title: "Developer & Analyst",
-      company: "Eco Consultant Pvt Ltd",
-      period: "2012 - 2017",
-      location: "India",
+      company: "Eco Consultant Pvt Ltd, India",
+      period: "April 2012 – Mar 2017",
       current: false,
-      description: "At Eco Consultant, I focused on backend infrastructure design and code quality improvements while introducing marketing automation systems that significantly enhanced conversion rates.",
+      metrics: [
+        { label: "Performance Improvement", value: "73%" },
+        { label: "Defect Reduction", value: "40%" }
+      ],
       achievements: [
         "Designed backend infrastructure improving query performance by 73%",
         "Conducted 200+ code reviews, reducing defect rates by 40% in production",
@@ -59,40 +71,51 @@ export default function WorkExperience() {
   ];
 
   return (
-    <div className="apex-container">
-      <section className="apex-section">
-        <h2 className="apex-heading">Work Experience</h2>
+    <section id="experience" className="py-20 bg-secondary-dark/30">
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-16 gradient-text">
+          Work Experience
+        </h2>
         
-        <div className="space-y-16">
+        <div className="space-y-12">
           {experiences.map((exp, index) => (
-            <div key={index}>
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
-                <div>
-                  <h3 className="text-2xl font-semibold mb-2">{exp.title}</h3>
-                  <div className="text-lg text-foreground mb-1">{exp.company}</div>
+            <Card key={index} className="bg-secondary-dark border-gray-800 card-hover">
+              <CardContent className="p-8">
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-2">{exp.title}</h3>
+                    <div className="text-accent-blue font-medium text-lg">{exp.company}</div>
+                  </div>
+                  <Badge 
+                    variant={exp.current ? "default" : "secondary"}
+                    className={`mt-4 lg:mt-0 ${exp.current ? 'bg-accent-blue text-white' : 'bg-gray-600/20 text-gray-400'}`}
+                  >
+                    {exp.period}
+                  </Badge>
                 </div>
-                <div className="flex flex-col lg:items-end text-muted-foreground">
-                  <div className="text-sm">{exp.period}</div>
-                  <div className="text-sm">{exp.location}</div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  {exp.metrics.map((metric, metricIndex) => (
+                    <div key={metricIndex} className="bg-primary-dark/50 rounded-xl p-4">
+                      <div className="text-2xl font-bold text-accent-blue mb-1">{metric.value}</div>
+                      <div className="text-sm text-gray-400">{metric.label}</div>
+                    </div>
+                  ))}
                 </div>
-              </div>
-              
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                {exp.description}
-              </p>
-              
-              <ul className="space-y-3 text-muted-foreground">
-                {exp.achievements.map((achievement, achIndex) => (
-                  <li key={achIndex} className="flex items-start space-x-3">
-                    <span className="text-foreground mt-1">—</span>
-                    <span>{achievement}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                
+                <ul className="space-y-3 text-gray-300">
+                  {exp.achievements.map((achievement, achIndex) => (
+                    <li key={achIndex} className="flex items-start space-x-3">
+                      <CheckCircle size={16} className="text-accent-blue mt-1 flex-shrink-0" />
+                      <span>{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           ))}
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

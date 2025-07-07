@@ -1,59 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* Apex template dark theme colors */
-  --background: hsl(0, 0%, 9%);
-  --foreground: hsl(0, 0%, 100%);
-  --muted: hsl(0, 0%, 15%);
-  --muted-foreground: hsl(0, 0%, 60%);
-  --popover: hsl(0, 0%, 12%);
-  --popover-foreground: hsl(0, 0%, 100%);
-  --card: hsl(0, 0%, 12%);
-  --card-foreground: hsl(0, 0%, 100%);
-  --border: hsl(0, 0%, 20%);
-  --input: hsl(0, 0%, 15%);
-  --primary: hsl(0, 0%, 100%);
-  --primary-foreground: hsl(0, 0%, 0%);
-  --secondary: hsl(0, 0%, 15%);
-  --secondary-foreground: hsl(0, 0%, 100%);
-  --accent: hsl(0, 0%, 15%);
-  --accent-foreground: hsl(0, 0%, 100%);
+  --background: hsl(0, 0%, 4%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 3.7%, 10%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 10%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
   --destructive: hsl(0, 62.8%, 30.6%);
   --destructive-foreground: hsl(0, 0%, 98%);
-  --ring: hsl(0, 0%, 60%);
+  --ring: hsl(240, 4.9%, 83.9%);
   --radius: 0.5rem;
   
-  /* Apex template specific colors */
-  --apex-bg: hsl(0, 0%, 9%);
-  --apex-text: hsl(0, 0%, 100%);
-  --apex-muted: hsl(0, 0%, 60%);
-  --apex-border: hsl(0, 0%, 20%);
+  /* Custom colors for portfolio */
+  --primary-dark: hsl(0, 0%, 4%);
+  --secondary-dark: hsl(0, 0%, 10%);
+  --accent-blue: hsl(214, 95%, 63%);
+  --accent-purple: hsl(258, 78%, 68%);
+  --success: hsl(142, 71%, 45%);
+  --warning: hsl(45, 93%, 47%);
 }
 
 .dark {
-  --background: hsl(0, 0%, 9%);
-  --foreground: hsl(0, 0%, 100%);
-  --muted: hsl(0, 0%, 15%);
-  --muted-foreground: hsl(0, 0%, 60%);
-  --popover: hsl(0, 0%, 12%);
-  --popover-foreground: hsl(0, 0%, 100%);
-  --card: hsl(0, 0%, 12%);
-  --card-foreground: hsl(0, 0%, 100%);
-  --border: hsl(0, 0%, 20%);
-  --input: hsl(0, 0%, 15%);
-  --primary: hsl(0, 0%, 100%);
-  --primary-foreground: hsl(0, 0%, 0%);
-  --secondary: hsl(0, 0%, 15%);
-  --secondary-foreground: hsl(0, 0%, 100%);
-  --accent: hsl(0, 0%, 15%);
-  --accent-foreground: hsl(0, 0%, 100%);
+  --background: hsl(0, 0%, 4%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 3.7%, 10%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 10%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
   --destructive: hsl(0, 62.8%, 30.6%);
   --destructive-foreground: hsl(0, 0%, 98%);
-  --ring: hsl(0, 0%, 60%);
+  --ring: hsl(240, 4.9%, 83.9%);
 }
 
 @layer base {
@@ -63,76 +62,74 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
-    background: var(--apex-bg);
-    color: var(--apex-text);
+    background: var(--primary-dark);
+    color: var(--foreground);
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    line-height: 1.5;
   }
 }
 
 @layer utilities {
-  .apex-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
+  .gradient-text {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   
-  .apex-section {
-    margin-bottom: 80px;
+  .card-hover {
+    transition: all 0.3s ease;
   }
   
-  .apex-heading {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    line-height: 1.2;
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
   }
   
-  .apex-subheading {
-    font-size: 1.25rem;
-    color: var(--apex-muted);
-    margin-bottom: 3rem;
-    line-height: 1.6;
+  .bg-primary-dark {
+    background-color: var(--primary-dark);
   }
   
-  .apex-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    transition: all 0.2s ease-in-out;
+  .bg-secondary-dark {
+    background-color: var(--secondary-dark);
   }
   
-  .apex-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  .text-accent-blue {
+    color: var(--accent-blue);
   }
   
-  .apex-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 4px 12px;
-    background: var(--secondary);
-    color: var(--secondary-foreground);
-    border-radius: 20px;
-    font-size: 0.875rem;
-    font-weight: 500;
+  .text-accent-purple {
+    color: var(--accent-purple);
   }
   
-  .apex-link {
-    color: var(--apex-text);
-    text-decoration: none;
-    transition: color 0.2s ease;
+  .text-success {
+    color: var(--success);
   }
   
-  .apex-link:hover {
-    color: var(--apex-muted);
+  .text-warning {
+    color: var(--warning);
   }
   
-  .apex-profile-img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--border);
+  .bg-accent-blue {
+    background-color: var(--accent-blue);
+  }
+  
+  .bg-accent-purple {
+    background-color: var(--accent-purple);
+  }
+  
+  .bg-success {
+    background-color: var(--success);
+  }
+  
+  .bg-warning {
+    background-color: var(--warning);
+  }
+  
+  .border-accent-blue {
+    border-color: var(--accent-blue);
+  }
+  
+  .border-accent-purple {
+    border-color: var(--accent-purple);
   }
 }

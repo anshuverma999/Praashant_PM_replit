@@ -1,27 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [navVisible, setNavVisible] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setNavVisible(false);
-      } else {
-        setNavVisible(true);
-      }
-      
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -32,9 +13,7 @@ export default function Navigation() {
   };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 bg-primary-dark/80 backdrop-blur-md border-b border-gray-800 transition-transform duration-300 ${
-      navVisible ? 'translate-y-0' : '-translate-y-full'
-    }`}>
+    <nav className="fixed top-0 w-full z-50 bg-primary-dark/90 backdrop-blur-md border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <div className="text-xl font-bold gradient-text">Prashant Verma</div>

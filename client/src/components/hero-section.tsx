@@ -31,18 +31,29 @@ export default function HeroSection() {
           </h1>
           
           <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-8 text-gray-300 mb-8">
-            <div className="flex items-center space-x-2">
+            <a 
+              href="mailto:thatsme.prashantt@gmail.com"
+              className="flex items-center space-x-2 hover:text-accent-blue transition-colors"
+            >
               <Mail size={16} className="text-accent-blue" />
               <span>thatsme.prashantt@gmail.com</span>
-            </div>
-            <div className="flex items-center space-x-2">
+            </a>
+            <a 
+              href="https://linkedin.com/in/thatsme-prashantt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 hover:text-accent-blue transition-colors"
+            >
               <Linkedin size={16} className="text-accent-blue" />
               <span>linkedin.com/in/thatsme-prashantt</span>
-            </div>
-            <div className="flex items-center space-x-2">
+            </a>
+            <a 
+              href="tel:+917007179287"
+              className="flex items-center space-x-2 hover:text-accent-blue transition-colors"
+            >
               <Phone size={16} className="text-accent-blue" />
               <span>+91-7007179287</span>
-            </div>
+            </a>
             <div className="flex items-center space-x-2">
               <MapPin size={16} className="text-accent-blue" />
               <span>Lucknow, India</span>

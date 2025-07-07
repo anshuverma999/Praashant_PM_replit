@@ -28,7 +28,7 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <a 
             href="mailto:thatsme.prashantt@gmail.com" 
-            className="block"
+            className="block transition-transform duration-300 hover:scale-105"
           >
             <Card className="bg-secondary-dark border-gray-800 card-hover">
               <CardContent className="p-6 text-center">
@@ -43,7 +43,7 @@ export default function ContactSection() {
             href="https://linkedin.com/in/thatsme-prashantt" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="block"
+            className="block transition-transform duration-300 hover:scale-105"
           >
             <Card className="bg-secondary-dark border-gray-800 card-hover">
               <CardContent className="p-6 text-center">
@@ -56,7 +56,7 @@ export default function ContactSection() {
           
           <a 
             href="tel:+917007179287" 
-            className="block"
+            className="block transition-transform duration-300 hover:scale-105"
           >
             <Card className="bg-secondary-dark border-gray-800 card-hover">
               <CardContent className="p-6 text-center">

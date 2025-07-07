@@ -97,7 +97,8 @@ This is a full-stack web application built with modern technologies, featuring a
 ## Changelog
 ```
 Changelog:
-- July 07, 2025. Initial setup
+- July 07, 2025. Initial portfolio website setup with Apex template design
+- July 07, 2025. Added profile picture and resume download functionality
 ```
 
 ## User Preferences

@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Mail, Linkedin, Phone, MapPin } from "lucide-react";
+import profileImage from "@assets/li_1751876985024.png";
 
 export default function HeroSection() {
   return (
@@ -10,6 +11,18 @@ export default function HeroSection() {
           <Badge variant="secondary" className="bg-accent-blue/20 text-accent-blue border-accent-blue/30 mb-6">
             Open to new opportunities
           </Badge>
+          
+          {/* Profile Image */}
+          <div className="mb-8 flex justify-center">
+            <div className="relative">
+              <img 
+                src={profileImage} 
+                alt="Prashant Verma"
+                className="w-48 h-48 rounded-full object-cover border-4 border-accent-blue/30 shadow-2xl"
+              />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent-blue/20 to-accent-purple/20"></div>
+            </div>
+          </div>
           
           <h2 className="text-gray-400 text-xl mb-4">Senior Product & Project Management Specialist</h2>
           

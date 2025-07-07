@@ -1,12 +1,17 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, Linkedin, Phone, Download } from "lucide-react";
+import resumePdf from "@assets/Prashant_Verma_Project_Manager_2025_1751877029559.pdf";
 
 export default function ContactSection() {
   const handleDownloadResume = () => {
-    // In a real implementation, this would download the actual resume file
-    console.log('Resume download initiated');
-    alert('Resume download feature would be implemented with actual file hosting');
+    // Create a temporary link element and trigger download
+    const link = document.createElement('a');
+    link.href = resumePdf;
+    link.download = 'Prashant_Verma_Resume_2025.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (

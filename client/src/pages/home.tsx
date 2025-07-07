@@ -6,10 +6,12 @@ import ProjectsShowcase from "@/components/projects-showcase";
 import SkillsTools from "@/components/skills-tools";
 import EducationCertifications from "@/components/education-certifications";
 import ContactSection from "@/components/contact-section";
+import AnimatedBackground from "@/components/animated-background";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-primary-dark text-white">
+    <div className="min-h-screen bg-primary-dark text-white relative">
+      <AnimatedBackground />
       <Navigation />
       <HeroSection />
       <AchievementSnapshot />

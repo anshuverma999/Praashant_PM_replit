@@ -99,6 +99,8 @@ This is a full-stack web application built with modern technologies, featuring a
 Changelog:
 - July 07, 2025. Initial portfolio website setup with Apex template design
 - July 07, 2025. Added profile picture and resume download functionality
+- July 07, 2025. Added 3D animated background with PM tools and programming language icons
+- July 07, 2025. Implemented parallax scrolling effects and interactive animations
 ```
 
 ## User Preferences

@@ -1,42 +1,71 @@
-import { Badge } from "@/components/ui/badge";
-import { Mail, Linkedin, Phone, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Mail, Linkedin, Phone, MapPin, Download } from "lucide-react";
+import profileImg from "@assets/li_1751876554815.png";
 
 export default function HeroSection() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/20 via-primary-dark to-accent-purple/20"></div>
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-        <div className="animate-fade-in">
-          <Badge variant="secondary" className="bg-accent-blue/20 text-accent-blue border-accent-blue/30 mb-6">
-            Open to new opportunities
-          </Badge>
-          
-          <h2 className="text-gray-400 text-xl mb-4">Senior Product & Project Management Specialist</h2>
-          
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 gradient-text">
-            Prashant Verma
-          </h1>
-          
-          <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-8 text-gray-300 mb-8">
-            <div className="flex items-center space-x-2">
-              <Mail size={16} className="text-accent-blue" />
-              <span>thatsme.prashantt@gmail.com</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Linkedin size={16} className="text-accent-blue" />
-              <span>linkedin.com/in/thatsme-prashantt</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Phone size={16} className="text-accent-blue" />
-              <span>+91-7007179287</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <MapPin size={16} className="text-accent-blue" />
-              <span>Lucknow, India</span>
-            </div>
+    <div className="apex-container">
+      <header className="py-24">
+        <div className="flex items-center justify-between mb-8">
+          <div className="apex-badge">
+            Open to work
           </div>
         </div>
-      </div>
-    </section>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="mb-6">
+              <h2 className="text-lg text-muted-foreground mb-2">Senior Product & Project Management Specialist</h2>
+              <h1 className="text-5xl md:text-6xl font-semibold mb-6 tracking-tight">
+                Prashant Verma
+              </h1>
+            </div>
+            
+            <div className="space-y-3 mb-8 text-muted-foreground">
+              <div className="flex items-center space-x-3">
+                <Mail size={16} />
+                <a href="mailto:thatsme.prashantt@gmail.com" className="apex-link">
+                  thatsme.prashantt@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Linkedin size={16} />
+                <a 
+                  href="https://linkedin.com/in/thatsme-prashantt" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="apex-link"
+                >
+                  linkedin.com/in/thatsme-prashantt
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone size={16} />
+                <a href="tel:+917007179287" className="apex-link">
+                  +91-7007179287
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <MapPin size={16} />
+                <span>Lucknow, India</span>
+              </div>
+            </div>
+
+            <Button className="bg-white text-black hover:bg-gray-200">
+              <Download className="mr-2" size={16} />
+              Download CV
+            </Button>
+          </div>
+          
+          <div className="flex justify-center lg:justify-end">
+            <img 
+              src={profileImg} 
+              alt="Prashant Verma" 
+              className="apex-profile-img"
+            />
+          </div>
+        </div>
+      </header>
+    </div>
   );
 }
